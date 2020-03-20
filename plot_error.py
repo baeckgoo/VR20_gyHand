@@ -81,15 +81,10 @@ if __name__=="__main__":
                 
         if av_sum<speed_threshold:
             fast_frames.append(fr) 
-            #print('fast',av_sum/av_num,av_num)
         else:
             fastExtremely_frames.append(fr)
+
             
-            #print('very fast',av_sum/av_num,av_num)
-            
-            
-    #slow_frames=range(400)
-    #fast_frames=range(400,frameMax)       
     print('slow frames',len(slow_frames))
     print('fast frames',len(fast_frames))
     print('fast extremely frames',len(fastExtremely_frames))
@@ -109,7 +104,6 @@ if __name__=="__main__":
                 "{}\n{}".format('Chen', '2019'),
                 'Our work']
 
-    
     errorBag={} 
     errorBag[methodname[3]]=makeErrorBag_1fingers(position_allsequence_ground,position_allsequence_poseREN,fingername,frameMax)    
     errorBag[methodname[4]]=makeErrorBag_1fingers(position_allsequence_ground,position_allsequence_uvr,fingername,frameMax)    
@@ -128,36 +122,11 @@ if __name__=="__main__":
         fig,ax =plt.subplots()    
         
     ax.cla()
-    ax.set_ylabel('2D error [pixel]')
-    
+    ax.set_ylabel('2D error [pixel]')    
     ax.boxplot(error,showfliers=False,positions=[1,1.5,2, 3,3.5,4, 5,5.5,6, 7,7.5,8, 9,9.5,10])
-    #plt.xticks(range(1,len(methodname)+1), methodname)
-    
-    
     ax.set_xticks([1.2, 3.2, 5.2, 7.2, 9.2])
-    ax.set_xticklabels(methodname)
-    
+    ax.set_xticklabels(methodname)    
     ax.xaxis.grid(False)
     ax.yaxis.grid(True)
     
     ax.set_ylim(0,60)
-    
-    #print('average',np.mean(error[0]),np.mean(error[1]))
-    #print('median',np.median(error[0]),np.median(error[1]))
-    #print('stdev',np.std(error[0]),np.std(error[1]))        
-        
-        
-    #debug 
-    
-    error_fastExtremely_frames=np.zeros((len(fastExtremely_frames),3))
-    error_fastExtremely_frames[:,0]=fastExtremely_frames
-    error_fastExtremely_frames[:,1]=error[2]
-    error_fastExtremely_frames[:,2]=error[5]
-    error_fastExtremely_frames=list(error_fastExtremely_frames)
-    
-    
-        
-        
-        
-        
-        
