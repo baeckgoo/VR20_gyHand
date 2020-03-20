@@ -56,7 +56,7 @@ def makeErrorBag_1fingers(ground_position_allsequence,test_position_allsequence,
             
     return errorBag
         
-#def paper_NextGoodVersion():
+
 if __name__=="__main__":   
     frameMax=2370   #2039
     speed_threshold=60  #65
@@ -69,7 +69,7 @@ if __name__=="__main__":
     
     slow_frames=range(300)
     
-    gyropath='D:/research/IMPLEMENTATION/2019_01_17/GYhandtrackingProject/saveData/uvrDataset - exocentric_paper/angularVelocity/'
+    gyropath='dataset/angularVelocity/'
     for fr in range(300,frameMax):
         av_sum=0
         av_num=0
@@ -95,12 +95,12 @@ if __name__=="__main__":
     print('fast extremely frames',len(fastExtremely_frames))
     
     #read result from algorithm
-    position_allsequence_ground=getCsvData('groundtruth/position2D.txt')
-    position_allsequence_poseREN=getCsvData('poseREN/position2D.txt')
-    position_allsequence_uvr=getCsvData('fusion/position2D.txt')
-    position_allsequence_epfl=getCsvData('epfl2017/position2D.txt')
-    position_allsequence_forth=getCsvData('PSO/position2D.txt')
-    position_allsequence_ismar=getCsvData('ismar2018-gyro/position2D.txt')
+    position_allsequence_ground=getCsvData('results/groundtruth/position2D.txt')
+    position_allsequence_poseREN=getCsvData('results/poseREN/position2D.txt')
+    position_allsequence_uvr=getCsvData('results/fusion/position2D.txt')
+    position_allsequence_epfl=getCsvData('results/epfl2017/position2D.txt')
+    position_allsequence_forth=getCsvData('results/PSO/position2D.txt')
+    position_allsequence_ismar=getCsvData('results/ismar2018-gyro/position2D.txt')
     
 
     methodname=["{}\n{}".format('Oikonomidis', '2011'),
